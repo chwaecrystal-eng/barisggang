@@ -23,9 +23,13 @@
 - **가격·영업시간·휴무**: `public/index.html` 에서 찾아 바꾼다 (첫 화면 작은 칸, 가격 칸, 요일 표, 검색용 정보 `application/ld+json`, 맨 위 `description`). 영업시간·휴무는 `public/app.js` 의 `SHOP` 도 같이.
 - **사진 바꾸기**: `photos-original/` 에 같은 이름으로 넣고 `npm run photos`. 자르는 위치는 `scripts/photos.mjs` 의 `crop` 숫자.
 
-## 올린 뒤 할 일
+## 주소
 
-1. `SITE_URL` 을 실제 주소로 바꾼다 — `public/index.html`, `public/robots.txt`, `public/sitemap.xml`
+https://chwaecrystal-eng.github.io/barisggang/ — GitHub Pages. main 에 올리면 `.github/workflows/pages.yml` 이 자동 반영 (공개 저장소라 무료).
+
+## 올린 뒤 할 일 — 자세한 안내는 `등록안내.md`
+
+1. ~~주소 넣기~~ 완료 (2026-10-02)
 2. 검색 등록 (모두 무료)
    - 네이버 서치어드바이저 (searchadvisor.naver.com) → 사이트 등록 → 받은 값을 `naver-site-verification` 에 → 사이트맵 제출
    - 구글 서치콘솔 (search.google.com/search-console) → 같은 방식 `google-site-verification`
