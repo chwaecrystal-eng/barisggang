@@ -7,7 +7,7 @@
 <meta name="description" content="바리스깡은 부산 해운대 해리단길(우동)의 남녀 커트 전문점입니다. 펌·염색 없이 커트만 합니다. 남성 커트 10,000원, 여성 커트 15,000원. 오전 10:30~오후 6:30, 매주 수·일요일 휴무. 예약 없이 편하게 오세요. ☎ 051-944-9090">
 <meta name="keywords" content="바리스깡, 해리단길 미용실, 해리단길 커트, 남녀커트전문점, 커트전문점, 해운대 커트, 해운대 미용실, 우동 미용실, 부산 커트, 부산 미용실, 남자커트, 여자커트, 저렴한 커트, 동네미용실">
 <link rel="canonical" href="https://chwaecrystal-eng.github.io/barisggang/">
-<meta name="theme-color" content="#23868a">
+<meta name="theme-color" content="#0b1f20">
 
 <!-- 검색 등록 확인용 (네이버 서치어드바이저 · 구글 서치콘솔에서 받은 값을 content 에 넣는다) -->
 <meta name="naver-site-verification" content="">
@@ -32,8 +32,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap">
 <link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js">
 
 <!-- 검색엔진이 가게 정보를 알아보게 하는 표 (구글·네이버) -->
 <script type="application/ld+json">
@@ -44,7 +46,7 @@
   "alternateName": "바리스깡 남녀커트전문점",
   "description": "부산 해운대 해리단길(우동) 남녀 커트 전문점. 펌·염색·클리닉 없이 커트만 합니다. 예약 없이 방문.",
   "url": "https://chwaecrystal-eng.github.io/barisggang/",
-  "image": ["https://chwaecrystal-eng.github.io/barisggang/img/og.jpg", "https://chwaecrystal-eng.github.io/barisggang/img/interior.jpg", "https://chwaecrystal-eng.github.io/barisggang/img/counter.jpg"],
+  "image": ["https://chwaecrystal-eng.github.io/barisggang/img/storefront.jpg", "https://chwaecrystal-eng.github.io/barisggang/img/og.jpg", "https://chwaecrystal-eng.github.io/barisggang/img/interior.jpg", "https://chwaecrystal-eng.github.io/barisggang/img/counter.jpg"],
   "logo": "https://chwaecrystal-eng.github.io/barisggang/img/icon-512.png",
   "telephone": "+82-51-944-9090",
   "priceRange": "₩10,000 ~ ₩15,000",
@@ -70,21 +72,20 @@
 </head>
 <body>
 
-<div class="pole" aria-hidden="true"></div>
-
+<!-- 머리말 -->
 <header class="top" id="top">
   <div class="wrap top__in">
     <a class="brand" href="#top" aria-label="바리스깡 처음으로">
-      <img src="img/logo.svg" alt="" width="40" height="40">
-      <span class="brand__name">바리스깡<small>남녀커트전문점</small></span>
+      <img src="img/logo.svg" alt="" width="38" height="38">
+      <span>바리스깡</span>
     </a>
     <nav class="nav" aria-label="메뉴">
-      <a href="#about">소개</a>
-      <a href="#price">가격</a>
-      <a href="#hours">영업시간</a>
-      <a href="#map">오시는 길</a>
-      <a class="btn btn--sm" href="tel:051-944-9090">☎ 051-944-9090</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#hours">Hours</a>
+      <a href="#visit">Visit</a>
     </nav>
+    <a class="pill" href="tel:051-944-9090"><span class="pill__dot" aria-hidden="true"></span>051-944-9090</a>
   </div>
 </header>
 
@@ -92,145 +93,148 @@
 
   <!-- 첫 화면 -->
   <section class="hero">
+    <div class="hero__bg" aria-hidden="true">HAIRCUT</div>
     <div class="wrap hero__in">
       <div class="hero__text">
-        <p class="eyebrow"><span class="en">Haircut only</span> 남녀 커트 전문점</p>
-        <h1>커트 하나만,<br><em>제대로.</em></h1>
-        <p class="script">기분 좋은 변화!</p>
-        <p class="lead">펌·염색 없이 오직 커트에만 집중합니다.<br>예약 없이, 부담 없는 가격으로 편하게 오세요.</p>
-        <div class="hero__cta">
-          <a class="btn" href="tel:051-944-9090">☎ 전화하기</a>
-          <a class="btn btn--ghost" href="#map">오시는 길</a>
+        <p class="kicker reveal">Haeridan-gil · Busan <i></i> Men &amp; Women</p>
+        <h1 class="reveal">커트 하나만,<br><span>제대로.</span></h1>
+        <p class="hero__lead reveal">펌도, 염색도 하지 않습니다.<br>오직 커트 하나에 손과 시간을 쓰는<br>해리단길의 남녀 커트 전문점.</p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--brass" href="tel:051-944-9090">전화하기</a>
+          <a class="btn btn--line" href="#visit">오시는 길 →</a>
         </div>
-        <ul class="chips">
-          <li>남성 커트 <b>10,000원</b></li>
-          <li>여성 커트 <b class="coral">15,000원</b></li>
-          <li>10:30 – 18:30</li>
-          <li>수 · 일 휴무</li>
-        </ul>
+        <dl class="hero__facts reveal">
+          <div><dt>Men</dt><dd>10,000</dd></div>
+          <div><dt>Women</dt><dd>15,000</dd></div>
+          <div><dt>Open</dt><dd>10:30–18:30</dd></div>
+        </dl>
       </div>
-      <figure class="hero__photo">
-        <picture>
-          <source srcset="img/storefront.webp" type="image/webp">
-          <img src="img/storefront.jpg" alt="바리스깡 가게 앞 모습. 청록색 간판에 HAIRCUT 로고" width="720" height="900" fetchpriority="high">
-        </picture>
-        <figcaption><span class="dot" id="openDot"></span><span id="openText">영업시간 10:30 – 18:30</span></figcaption>
-      </figure>
+
+      <div class="hero__stage reveal">
+        <!-- three.js 3D 이발소 기둥 (hero3d.js). 3D가 안 되는 기기에서는 아래 그림이 대신 보인다 -->
+        <canvas id="pole3d" aria-label="빙글빙글 도는 3D 이발소 기둥" role="img"></canvas>
+        <div class="pole-fallback" aria-hidden="true"><div class="pole-fallback__glass"></div></div>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <text><textPath href="#ring">HAIRCUT ONLY ✂ MEN &amp; WOMEN ✂ HAERIDAN-GIL ✂ BUSAN ✂ </textPath></text>
+          </svg>
+          <img src="img/logo.svg" alt="" width="84" height="84">
+        </div>
+        <p class="status"><span class="status__dot" id="openDot"></span><span id="openText">영업시간 10:30 – 18:30</span></p>
+      </div>
     </div>
+    <a class="scroll" href="#about" aria-label="아래로">Scroll</a>
   </section>
+
+  <!-- 흐르는 띠 -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>남성 커트 10,000</span><b>✂</b><span>여성 커트 15,000</span><b>✂</b><span>예약 없이 방문</span><b>✂</b><span>해운대 해리단길</span><b>✂</b><span>Haircut Only</span><b>✂</b>
+      <span>남성 커트 10,000</span><b>✂</b><span>여성 커트 15,000</span><b>✂</b><span>예약 없이 방문</span><b>✂</b><span>해운대 해리단길</span><b>✂</b><span>Haircut Only</span><b>✂</b>
+    </div>
+  </div>
 
   <!-- 소개 -->
-  <section class="section about" id="about">
-    <div class="wrap">
-      <header class="head">
-        <p class="eyebrow"><span class="en">About</span> 바리스깡</p>
-        <h2>세련된 커트,<br>정성을 담은 손길</h2>
-      </header>
-      <div class="about__grid">
-        <figure class="ph ph--tall">
-          <picture>
-            <source srcset="img/counter.webp" type="image/webp">
-            <img src="img/counter.jpg" alt="원목 벽과 아치 문이 있는 바리스깡 카운터" width="1054" height="1054" loading="lazy">
-          </picture>
+  <section class="about" id="about">
+    <div class="wrap about__in">
+      <div class="about__head">
+        <p class="label reveal">01 — About</p>
+        <h2 class="reveal">잘 자르는 것,<br>그 하나에<br><em>집중합니다.</em></h2>
+        <p class="about__lead reveal">원목 결과 민트빛 벽, 아치 문으로 꾸민 작은 매장. 바리스깡은 펌·염색·클리닉 대신 <b>커트 한 가지</b>만 합니다. 그래서 더 빠르고, 더 깔끔하고, 더 부담 없어요.</p>
+      </div>
+
+      <div class="about__photos">
+        <figure class="duo shot shot--a reveal">
+          <picture><source srcset="img/counter-duo.webp" type="image/webp"><img class="duo__base" src="img/counter-duo.jpg" alt="원목 벽과 아치 문이 있는 바리스깡 카운터" width="1054" height="1054" loading="lazy"></picture>
+          <picture><source srcset="img/counter.webp" type="image/webp"><img class="duo__color" src="img/counter.jpg" alt="" width="1054" height="1054" loading="lazy" aria-hidden="true"></picture>
+          <figcaption>Front desk</figcaption>
         </figure>
-        <div class="about__points">
-          <article class="point">
-            <span class="point__no">01</span>
-            <h3>커트만 전문</h3>
-            <p>펌·염색·클리닉은 하지 않아요. 그만큼 커트 한 가지에 손과 시간을 씁니다.</p>
-          </article>
-          <article class="point">
-            <span class="point__no">02</span>
-            <h3>부담 없는 가격</h3>
-            <p>남성 10,000원, 여성 15,000원. 자주 다듬어도 가벼운 가격이에요.</p>
-          </article>
-          <article class="point">
-            <span class="point__no">03</span>
-            <h3>편안하고 깨끗한 공간</h3>
-            <p>민트빛 벽과 원목으로 꾸민 아늑한 매장. 예약 없이 들러 주세요.</p>
-          </article>
-          <figure class="ph">
-            <picture>
-              <source srcset="img/interior.webp" type="image/webp">
-              <img src="img/interior.jpg" alt="금색 거울과 회색 의자가 있는 바리스깡 커트 자리" width="706" height="706" loading="lazy">
-            </picture>
-          </figure>
-        </div>
+        <figure class="duo shot shot--b reveal">
+          <picture><source srcset="img/interior-duo.webp" type="image/webp"><img class="duo__base" src="img/interior-duo.jpg" alt="금색 거울과 의자가 있는 커트 자리" width="706" height="706" loading="lazy"></picture>
+          <picture><source srcset="img/interior.webp" type="image/webp"><img class="duo__color" src="img/interior.jpg" alt="" width="706" height="706" loading="lazy" aria-hidden="true"></picture>
+          <figcaption>The chair</figcaption>
+        </figure>
       </div>
+
+      <ol class="points">
+        <li class="reveal"><span>i.</span><h3>커트만 전문</h3><p>펌·염색·클리닉은 하지 않아요. 커트 하나에만 집중합니다.</p></li>
+        <li class="reveal"><span>ii.</span><h3>부담 없는 가격</h3><p>남성 10,000원, 여성 15,000원. 자주 다듬어도 가볍게.</p></li>
+        <li class="reveal"><span>iii.</span><h3>예약 없이 방문</h3><p>지나가다 생각나면 그냥 들러 주세요. 오시는 순서대로.</p></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 가격 -->
-  <section class="section price" id="price">
-    <div class="wrap">
-      <header class="head head--center">
-        <p class="eyebrow"><span class="en">Price</span> 가격</p>
-        <h2>단순하고 정직한 가격</h2>
-      </header>
-      <div class="price__grid">
-        <article class="menu">
-          <p class="menu__en">Men's cut</p>
-          <h3>남성 커트</h3>
-          <p class="menu__price">10,000<span>원</span></p>
-        </article>
-        <article class="menu menu--coral">
-          <p class="menu__en">Women's cut</p>
-          <h3>여성 커트</h3>
-          <p class="menu__price">15,000<span>원</span></p>
-        </article>
-      </div>
-      <p class="note">✂︎ 커트 전용 미용실이에요. <b>펌 · 염색 · 클리닉은 하지 않아요.</b></p>
+  <!-- 가격 — 메뉴판 -->
+  <section class="menu" id="menu">
+    <div class="pole pole--v" aria-hidden="true"></div>
+    <div class="wrap menu__in">
+      <p class="label label--light reveal">02 — Menu</p>
+      <h2 class="menu__title reveal">The <em>Menu</em></h2>
+      <ul class="board">
+        <li class="reveal">
+          <div class="board__name"><strong>남성 커트</strong><small>Men's Cut</small></div>
+          <span class="board__dots" aria-hidden="true"></span>
+          <div class="board__price">10,000<small>원</small></div>
+        </li>
+        <li class="reveal">
+          <div class="board__name"><strong>여성 커트</strong><small>Women's Cut</small></div>
+          <span class="board__dots" aria-hidden="true"></span>
+          <div class="board__price">15,000<small>원</small></div>
+        </li>
+      </ul>
+      <p class="menu__note reveal">✂ 커트 전용 미용실 — 펌 · 염색 · 클리닉은 하지 않습니다</p>
     </div>
   </section>
 
-  <!-- 영업시간 · 방문 안내 -->
-  <section class="section hours" id="hours">
+  <!-- 간판 띠 -->
+  <section class="banner duo" aria-label="바리스깡 간판">
+    <picture><source srcset="img/sign-duo.webp" type="image/webp"><img class="duo__base" src="img/sign-duo.jpg" alt="바리스깡 간판" width="950" height="420" loading="lazy"></picture>
+    <picture><source srcset="img/sign.webp" type="image/webp"><img class="duo__color" src="img/sign.jpg" alt="" width="950" height="420" loading="lazy" aria-hidden="true"></picture>
+    <p class="banner__text reveal">기분 좋은 변화,<br><em>바리스깡</em>에서.</p>
+  </section>
+
+  <!-- 영업시간 -->
+  <section class="hours" id="hours">
     <div class="wrap hours__in">
-      <header class="head">
-        <p class="eyebrow"><span class="en">Hours</span> 영업시간</p>
-        <h2>예약 없이<br>편하게 오세요</h2>
-        <p class="lead">오전 10:30 부터 오후 6:30 까지.<br>매주 <b>수요일 · 일요일</b>은 쉬어요.</p>
-        <p class="lead small">오시는 순서대로 커트해 드려요. 궁금한 점은 전화 주세요.</p>
-        <a class="btn btn--ghost hours__tel" href="tel:051-944-9090">☎ 051-944-9090</a>
-      </header>
-      <table class="week" aria-label="요일별 영업시간">
+      <div>
+        <p class="label reveal">03 — Hours</p>
+        <h2 class="reveal">Walk in,<br><em>anytime.</em></h2>
+        <p class="hours__lead reveal">예약 없이 편하게 오세요.<br>매주 <b>수요일 · 일요일</b>은 쉬어요.</p>
+      </div>
+      <table class="week reveal" aria-label="요일별 영업시간">
         <tbody>
-          <tr data-day="1"><th>월</th><td>10:30 – 18:30</td></tr>
-          <tr data-day="2"><th>화</th><td>10:30 – 18:30</td></tr>
-          <tr data-day="3" class="off"><th>수</th><td>휴무</td></tr>
-          <tr data-day="4"><th>목</th><td>10:30 – 18:30</td></tr>
-          <tr data-day="5"><th>금</th><td>10:30 – 18:30</td></tr>
-          <tr data-day="6"><th>토</th><td>10:30 – 18:30</td></tr>
-          <tr data-day="0" class="off"><th>일</th><td>휴무</td></tr>
+          <tr data-day="1"><th>월 <small>Mon</small></th><td>10:30 — 18:30</td></tr>
+          <tr data-day="2"><th>화 <small>Tue</small></th><td>10:30 — 18:30</td></tr>
+          <tr data-day="3" class="off"><th>수 <small>Wed</small></th><td>Closed</td></tr>
+          <tr data-day="4"><th>목 <small>Thu</small></th><td>10:30 — 18:30</td></tr>
+          <tr data-day="5"><th>금 <small>Fri</small></th><td>10:30 — 18:30</td></tr>
+          <tr data-day="6"><th>토 <small>Sat</small></th><td>10:30 — 18:30</td></tr>
+          <tr data-day="0" class="off"><th>일 <small>Sun</small></th><td>Closed</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <!-- 오시는 길 -->
-  <section class="section map" id="map">
-    <div class="wrap map__in">
-      <div class="map__text">
-      <header class="head">
-        <p class="eyebrow"><span class="en">Location</span> 오시는 길</p>
-        <h2>바리스깡</h2>
-      </header>
-      <dl class="info">
-        <div class="js-addr"><dt>주소</dt><dd>부산 해운대구 우동1로20번가길 7</dd></div>
-        <div><dt>전화</dt><dd><a href="tel:051-944-9090">051-944-9090</a></dd></div>
-        <div><dt>영업</dt><dd>10:30 – 18:30 · 수 · 일 휴무</dd></div>
-      </dl>
-      <div class="map__btns">
-        <a class="btn btn--map naver js-map" data-map="naver" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EC%9A%B0%EB%8F%991%EB%A1%9C20%EB%B2%88%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener">네이버 지도</a>
-        <a class="btn btn--map kakao js-map" data-map="kakao" href="https://map.kakao.com/?q=%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EC%9A%B0%EB%8F%991%EB%A1%9C20%EB%B2%88%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener">카카오맵</a>
+  <section class="visit" id="visit">
+    <div class="wrap visit__in">
+      <div class="visit__text">
+        <p class="label label--light reveal">04 — Visit</p>
+        <h2 class="reveal">해운대<br><em>해리단길.</em></h2>
+        <address class="reveal">
+          부산 해운대구 우동1로20번가길 7<br>
+          <a href="tel:051-944-9090">051 · 944 · 9090</a>
+        </address>
+        <div class="visit__btns reveal">
+          <a class="btn btn--brass" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EC%9A%B0%EB%8F%991%EB%A1%9C20%EB%B2%88%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener">네이버 지도</a>
+          <a class="btn btn--line btn--light" href="https://map.kakao.com/?q=%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EC%9A%B0%EB%8F%991%EB%A1%9C20%EB%B2%88%EA%B0%80%EA%B8%B8%207" target="_blank" rel="noopener">카카오맵</a>
+        </div>
       </div>
-      </div>
-      <figure class="ph ph--board">
-        <picture>
-          <source srcset="img/priceboard.webp" type="image/webp">
-          <img src="img/priceboard.jpg" alt="가게 앞 안내판: 커트 전용 미용실, 남성 커트 10,000원, 여성 커트 15,000원" width="1035" height="849" loading="lazy">
-        </picture>
-        <figcaption>청록색 간판과 이 안내판을 찾아주세요.</figcaption>
+      <figure class="duo shot shot--store reveal">
+        <picture><source srcset="img/storefront-duo.webp" type="image/webp"><img class="duo__base" src="img/storefront-duo.jpg" alt="바리스깡 가게 앞. 청록색 간판에 HAIRCUT 로고" width="720" height="900" loading="lazy"></picture>
+        <picture><source srcset="img/storefront.webp" type="image/webp"><img class="duo__color" src="img/storefront.jpg" alt="" width="720" height="900" loading="lazy" aria-hidden="true"></picture>
+        <figcaption>청록색 간판을 찾아주세요</figcaption>
       </figure>
     </div>
   </section>
@@ -238,22 +242,22 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
-    <div class="brand brand--foot">
-      <img src="img/logo.svg" alt="" width="36" height="36">
-      <span class="brand__name">바리스깡<small>남녀커트전문점</small></span>
+  <div class="wrap">
+    <p class="foot__word" aria-hidden="true">바리스깡</p>
+    <div class="foot__row">
+      <p>남녀 커트 전문점 바리스깡 · 원장 최윤소<br>부산 해운대구 우동1로20번가길 7 · <a href="tel:051-944-9090">051-944-9090</a></p>
+      <p>© <span id="year">2026</span> Barisggang. Haircut only.</p>
     </div>
-    <p>원장 최윤소 <span class="js-addr">· 부산 해운대구 우동1로20번가길 7</span> · <a href="tel:051-944-9090">051-944-9090</a></p>
-    <p class="small">© <span id="year">2026</span> 바리스깡</p>
   </div>
 </footer>
 
-<!-- 핸드폰 화면 아래 고정 단추 -->
+<!-- 핸드폰 아래 고정 단추 -->
 <nav class="dock" aria-label="빠른 연결">
-  <a href="#map">📍 오시는 길</a>
-  <a href="tel:051-944-9090" class="dock__main">☎ 전화하기</a>
+  <a href="#visit">오시는 길</a>
+  <a href="tel:051-944-9090" class="dock__main">전화하기 · 051-944-9090</a>
 </nav>
 
 <script src="app.js" defer></script>
+<script type="module" src="hero3d.js"></script>
 </body>
 </html>
