@@ -1,0 +1,244 @@
+/* 바리스깡 — 색은 간판(청록)·실내(민트 벽·원목)·거울(금색)에서 땄다 */
+:root {
+  --teal: #23868a;
+  --teal-deep: #155f62;
+  --teal-ink: #0f3e40;
+  --mint: #e7f0ea;
+  --mint-2: #d6e6dc;
+  --wood: #e9dcc8;
+  --wood-line: #d8c6ad;
+  --gold: #b8913a;
+  --paper: #fbfaf6;
+  --ink: #1d2a29;
+  --muted: #5d6b69;
+  --line: #e2e6e1;
+  --red: #c0453a;
+  --navy: #2b4a73;
+  --coral: #e8735f;
+  --coral-deep: #b9503f;
+  --radius: 18px;
+  --shadow: 0 18px 40px -18px rgba(15, 62, 64, .35);
+  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.65;
+  word-break: keep-all; overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; line-height: 1.25; letter-spacing: -0.02em; }
+p { margin: 0; }
+b { font-weight: 700; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.en { font-family: var(--serif); font-style: italic; font-weight: 500; }
+.small { font-size: 14px; color: var(--muted); }
+
+/* 이발소 기둥 줄무늬 */
+.pole {
+  height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--red) 0 10px, #fff 10px 20px, var(--navy) 20px 30px, #fff 30px 40px);
+}
+
+/* 단추 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  min-height: 52px; padding: 0 26px; border-radius: 999px; border: 0;
+  background: var(--teal); color: #fff; text-decoration: none;
+  font: 700 16px/1 var(--font); cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 10px 22px -12px rgba(35, 134, 138, .9);
+}
+.btn:hover { background: var(--teal-deep); transform: translateY(-1px); }
+.btn:focus-visible, a:focus-visible {
+  outline: 3px solid var(--gold); outline-offset: 2px;
+}
+.btn--sm { min-height: 40px; padding: 0 18px; font-size: 15px; }
+.btn--ghost { background: transparent; color: var(--teal-deep); box-shadow: inset 0 0 0 1.5px var(--teal); }
+.btn--ghost:hover { background: var(--mint); }
+.btn--full { width: 100%; }
+
+/* 머리말 */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(251, 250, 246, .88);
+  backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top__in { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand__name { display: flex; flex-direction: column; font-size: 20px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--teal-ink); }
+.brand__name small { font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--teal); }
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a:not(.btn) { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--muted); }
+.nav a:not(.btn):hover { color: var(--teal-deep); }
+
+/* 공통 구역 */
+.section { padding: 96px 0; }
+.head { margin-bottom: 40px; }
+.head--center { text-align: center; }
+.eyebrow { display: inline-flex; align-items: baseline; gap: 10px; margin-bottom: 14px; font-size: 14px; font-weight: 700; color: var(--teal); letter-spacing: .02em; }
+.eyebrow .en { font-size: 18px; color: var(--gold); }
+h2 { font-size: clamp(28px, 4.2vw, 40px); font-weight: 800; color: var(--teal-ink); }
+.lead { margin-top: 16px; font-size: 17px; color: var(--muted); }
+
+/* 첫 화면 */
+.hero {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, var(--mint-2), transparent 60%),
+    linear-gradient(180deg, var(--mint) 0%, var(--paper) 100%);
+}
+.hero__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 88px; }
+.hero h1 { font-size: clamp(42px, 7vw, 76px); font-weight: 800; color: var(--teal-ink); letter-spacing: -0.045em; }
+.hero h1 em { font-style: normal; color: var(--teal); position: relative; }
+.hero h1 em::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: .08em; height: .18em;
+  background: var(--gold); opacity: .35; border-radius: 4px; z-index: -1;
+}
+.hero .lead { font-size: 18px; }
+.script { margin-top: 10px; font-family: "Nanum Pen Script", cursive; font-size: 34px; line-height: 1.1; color: var(--teal); transform: rotate(-3deg); transform-origin: left; }
+.coral { color: var(--coral-deep) !important; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+.chips li { padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.chips b { color: var(--teal-deep); }
+.hero__photo { position: relative; margin: 0; }
+.hero__photo img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 200px 200px var(--radius) var(--radius);   /* 매장의 아치 문 모양 */
+  box-shadow: var(--shadow);
+  border: 6px solid #fff;
+}
+.hero__photo::before {   /* 금색 거울 테 */
+  content: ""; position: absolute; inset: -14px 14px 14px -14px;
+  border: 2px solid var(--gold); border-radius: 210px 210px 22px 22px; opacity: .55; z-index: -1;
+}
+.hero__photo figcaption {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 10px 16px; border-radius: 999px; background: rgba(255, 255, 255, .95);
+  font-size: 14px; font-weight: 700; color: var(--teal-ink); box-shadow: 0 8px 20px -10px rgba(0,0,0,.35);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #9aa5a3; }
+.dot.on { background: #2fb36b; box-shadow: 0 0 0 4px rgba(47, 179, 107, .2); }
+
+/* 사진 틀 */
+.ph { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); background: var(--mint); }
+.ph img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 소개 */
+.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.ph--tall img { aspect-ratio: 4 / 5; }
+.about__points { display: grid; gap: 16px; }
+.point { padding: 24px 26px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); }
+.point__no { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 20px; }
+.point h3 { margin: 4px 0 6px; font-size: 20px; color: var(--teal-ink); }
+.point p { color: var(--muted); }
+.about__points .ph img { aspect-ratio: 16 / 10; object-position: center 40%; }
+
+/* 가격 — 원목 벽 느낌 */
+.price {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 22px, rgba(160, 130, 90, .10) 22px 24px),
+    var(--wood);
+}
+.price__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 22px; }
+.menu {
+  position: relative; text-align: center; padding: 40px 28px 34px;
+  background: var(--teal-ink); color: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.menu::before { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 12px; pointer-events: none; }
+.menu__en { font-family: var(--serif); font-style: italic; color: #e3c983; font-size: 18px; }
+.menu h3 { margin-top: 4px; font-size: 22px; }
+.menu__price { margin: 18px 0 10px; font-size: 48px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.menu__price span { font-size: 20px; font-weight: 600; margin-left: 2px; }
+.menu__desc { font-size: 14px; color: rgba(255,255,255,.72); }
+.menu--coral { background: var(--coral-deep); }
+.menu--coral .menu__en { color: #ffe1c9; }
+.note { margin-top: 28px; text-align: center; color: var(--ink); font-size: 15px; }
+
+/* 영업시간 */
+.hours { background: var(--paper); }
+.hours__in { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.hours .head { margin: 0; }
+.hours__tel { margin-top: 24px; }
+.lead.small { font-size: 15px; margin-top: 10px; }
+.week { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+.week th, .week td { padding: 14px 20px; background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 17px; }
+.week th { width: 72px; border-left: 1px solid var(--line); border-radius: 12px 0 0 12px; text-align: left; color: var(--teal-ink); }
+.week td { border-right: 1px solid var(--line); border-radius: 0 12px 12px 0; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.week tr.off th, .week tr.off td { background: transparent; color: #a3acaa; }
+.week tr.today th, .week tr.today td { background: var(--teal); color: #fff; border-color: var(--teal); }
+.week tr.today.off th, .week tr.today.off td { background: var(--muted); border-color: var(--muted); }
+
+/* 오시는 길 */
+.map__in { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; align-items: center; }
+.map__text { display: grid; gap: 28px; }
+.map__in .head { margin: 0; }
+.info { margin: 0; display: grid; gap: 2px; }
+.info div { display: grid; grid-template-columns: 64px 1fr; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.info dt { font-weight: 700; color: var(--teal); }
+.info dd { margin: 0; }
+.info a { color: var(--teal-deep); font-weight: 700; text-decoration: none; }
+.map__btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn--map { min-height: 48px; font-size: 15px; box-shadow: none; }
+.btn--map.naver { background: #03c75a; }
+.btn--map.naver:hover { background: #02a84c; }
+.btn--map.kakao { background: #fee500; color: #191919; }
+.btn--map.kakao:hover { background: #f0d800; }
+.ph--board img { aspect-ratio: 1035 / 849; }
+.ph--board figcaption { padding: 12px 16px; font-size: 14px; color: var(--muted); background: #fff; }
+
+/* 꼬리말 */
+.foot { padding: 48px 0; background: var(--teal-ink); color: rgba(255,255,255,.75); font-size: 14px; }
+.foot__in { display: grid; gap: 12px; }
+.brand--foot .brand__name { color: #fff; }
+.brand--foot .brand__name small { color: #9fd3d2; }
+.foot a { color: #fff; text-decoration: none; }
+.foot .small { color: rgba(255,255,255,.5); }
+
+/* 핸드폰 아래 고정 단추 */
+.dock { display: none; }
+
+/* 태블릿·핸드폰 */
+@media (max-width: 900px) {
+  .hero__in, .about__grid, .hours__in, .map__in { grid-template-columns: 1fr; }
+  .hero__in { gap: 40px; padding-top: 44px; padding-bottom: 64px; }
+  .hero__photo { max-width: 420px; width: 100%; justify-self: center; }
+  .section { padding: 72px 0; }
+}
+@media (max-width: 720px) {
+  .wrap { padding: 0 16px; }
+  .nav a:not(.btn) { display: none; }
+  .nav .btn { display: none; }
+  .top__in { height: 60px; }
+  .hero h1 { font-size: 44px; }
+  .hero .lead { font-size: 16px; }
+  .hero__cta .btn { flex: 1 1 100%; }
+  .price__grid { grid-template-columns: 1fr; }
+  .foot { padding-bottom: 110px; }
+  .dock {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
+    box-shadow: 0 -8px 24px -14px rgba(0,0,0,.25);
+  }
+  .dock a {
+    display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px;
+    text-decoration: none; font-weight: 700; background: var(--mint); color: var(--teal-deep);
+  }
+  .dock a.dock__main { background: var(--teal); color: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+a[href^="tel:"] { white-space: nowrap; }

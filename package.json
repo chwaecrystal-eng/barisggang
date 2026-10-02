@@ -1,0 +1,12 @@
+{
+  "name": "hairgnastudio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "photos": "node scripts/photos.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
