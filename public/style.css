@@ -178,8 +178,8 @@ main { overflow-x: clip; }
 
 /* ── 커트 스타일 예시 — 가로로 흐르는 세 줄 (three.js: styles3d.js) ───────────────────────── */
 .styles { background: var(--paper); color: var(--text); padding: 150px 0 120px; overflow: hidden; }
-.styles__head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; margin-bottom: 56px; }
-.styles h2 { font-size: clamp(40px, 5.4vw, 76px); color: var(--ink); }
+.styles__head { display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px 64px; align-items: end; margin-bottom: 56px; }
+.styles h2 { font-size: clamp(34px, 4.4vw, 64px); color: var(--ink); white-space: nowrap; }
 .styles h2 em { color: var(--teal); }
 .styles__lead { max-width: 30em; font-size: 18px; color: #4a5654; }
 
