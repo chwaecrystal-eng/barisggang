@@ -21,12 +21,13 @@ const loadImg = (src) => new Promise((ok, no) => { const i = new Image(); i.onlo
 
 // 사진 + 이름 한 장 (480 × 560). 이름 칸은 투명 — 뒤의 크림색 바탕이 그대로 보인다
 const TW = 480, TI = 384, TH = 560;
-function cardTexture(img, ko, en) {
+function cardTexture(img, ko, en, flip) {
   const c = document.createElement('canvas');
   c.width = TW; c.height = TH;
   const g = c.getContext('2d');
   g.save();
   g.beginPath(); g.roundRect(0, 0, TW, TI, 14); g.clip();
+  if (flip) { g.translate(TW, 0); g.scale(-1, 1); }       // 좌우 뒤집은 판 — 이름 글자는 뒤집지 않는다
   g.drawImage(img, 0, 0, TW, TI);
   g.restore();
   g.textAlign = 'center';
@@ -62,7 +63,10 @@ async function start() {
   ]).catch(() => {});
   const imgs = await Promise.all(rows.flatMap((r) => r.items.map((it) => loadImg(it.src))));
   let k = 0;
-  const textures = rows.map((r) => r.items.map((it) => cardTexture(imgs[k++], it.ko, it.en)));
+  // 줄마다 사진을 되풀이할 때 같은 모습이 반복돼 보이지 않게, 두 바퀴에 한 번은 사진을 좌우로 뒤집는다
+  // (순서는 그대로 — 같은 사진끼리 늘 한 바퀴만큼 떨어져 있어 한 화면에 잘 겹치지 않는다)
+  const textures = rows.map((r) => r.items.map((it) => { const img = imgs[k++]; const m = {};
+    return (flip) => (m[flip] ||= cardTexture(img, it.ko, it.en, flip)); }));
 
   section.classList.add('is-3d');
   const names = reel.querySelector('.reel__names');
@@ -101,7 +105,8 @@ async function start() {
       const reps = Math.max(1, Math.ceil((L.R * Math.PI) / (ln.tex.length * L.step)));
       const need = ln.tex.length * reps;
       while (ln.cards.length < need) {
-        const t = ln.tex[ln.cards.length % ln.tex.length];
+        const j = ln.cards.length, n = ln.tex.length;
+        const t = ln.tex[j % n](Math.floor(j / n) % 2 === 1);
         const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: t, transparent: true }));
         m.userData = { lift: 0 };
         scene.add(m); ln.cards.push(m);
