@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261012b">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js">
 
@@ -190,7 +190,8 @@
     </div>
   </section>
 
-  <!-- 커트 스타일 예시 (2026-10-12 대표님 요청 — 남성 전문점처럼 보이지 않게, 여성·학생·어르신 커트도 한다는 것을 보여 줌) -->
+  <!-- 커트 스타일 예시 (2026-10-12 대표님 요청 — 남성 전문점처럼 보이지 않게, 여성·학생·어르신 커트도 한다는 것을 보여 줌)
+       three.js 로 가로 세 줄(여성 · 남성 · 학생·아이)이 천천히 흐른다 (styles3d.js). 3D가 안 되면 아래 목록이 가로로 넘겨 보는 줄로 보인다 -->
   <section class="styles" id="styles">
     <div class="wrap">
       <div class="styles__head">
@@ -200,38 +201,53 @@
         </div>
         <p class="styles__lead reveal">단발·레이어드·숏컷부터 학생 머리, 어르신 커트까지.<br>남녀노소 누구나 — 바리스깡에서 할 수 있는 커트예요.</p>
       </div>
-      <div class="chips reveal" role="group" aria-label="스타일 고르기">
-        <button type="button" class="chip is-on" data-f="all" aria-pressed="true">전체 <span>24</span></button>
-        <button type="button" class="chip" data-f="w" aria-pressed="false">여성 <span>11</span></button>
-        <button type="button" class="chip" data-f="m" aria-pressed="false">남성 <span>6</span></button>
-        <button type="button" class="chip" data-f="k" aria-pressed="false">학생 · 아이 <span>7</span></button>
+    </div>
+    <div class="reel" aria-hidden="true">
+      <canvas id="styles3d"></canvas>
+      <div class="reel__names"></div>
+    </div>
+    <div class="wrap">
+      <div class="rows">
+        <div class="row" data-g="w">
+          <p class="row__name"><em>Women</em> 여성 <span>11</span></p>
+          <ul class="strip">
+            <li><figure><picture><source srcset="img/styles/01.webp" type="image/webp"><img src="img/styles/01.jpg" alt="숏 단발 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>숏 단발</b><small>Short Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/02.webp" type="image/webp"><img src="img/styles/02.jpg" alt="롱 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>롱 레이어드</b><small>Long Layer</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/03.webp" type="image/webp"><img src="img/styles/03.jpg" alt="단발 보브 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>단발 보브</b><small>Bob Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/04.webp" type="image/webp"><img src="img/styles/04.jpg" alt="미디엄 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>미디엄 레이어드</b><small>Layer Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/05.webp" type="image/webp"><img src="img/styles/05.jpg" alt="픽시 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>픽시 커트</b><small>Pixie Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/06.webp" type="image/webp"><img src="img/styles/06.jpg" alt="앞머리 롱 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>앞머리 롱</b><small>Long with Bangs</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/19.webp" type="image/webp"><img src="img/styles/19.jpg" alt="긴 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>긴 레이어드</b><small>Elegant Layer</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/20.webp" type="image/webp"><img src="img/styles/20.jpg" alt="중단발 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중단발 레이어드</b><small>Medium Layer</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/21.webp" type="image/webp"><img src="img/styles/21.jpg" alt="긴 생머리 일자 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>긴 생머리 일자</b><small>Straight Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/22.webp" type="image/webp"><img src="img/styles/22.jpg" alt="숏 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>숏 레이어드</b><small>Chic Short</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/23.webp" type="image/webp"><img src="img/styles/23.jpg" alt="어르신 숏커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>어르신 숏커트</b><small>Senior Cut</small></figcaption></figure></li>
+          </ul>
+        </div>
+        <div class="row" data-g="m">
+          <p class="row__name"><em>Men</em> 남성 <span>6</span></p>
+          <ul class="strip">
+            <li><figure><picture><source srcset="img/styles/07.webp" type="image/webp"><img src="img/styles/07.jpg" alt="클래식 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>클래식 커트</b><small>Classic Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/08.webp" type="image/webp"><img src="img/styles/08.jpg" alt="곱슬머리 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>곱슬머리 커트</b><small>Curly Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/09.webp" type="image/webp"><img src="img/styles/09.jpg" alt="투블럭 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>투블럭</b><small>Two Block</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/10.webp" type="image/webp"><img src="img/styles/10.jpg" alt="텍스처드 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>텍스처드 커트</b><small>Textured Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/11.webp" type="image/webp"><img src="img/styles/11.jpg" alt="비즈니스 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>비즈니스 커트</b><small>Business Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/24.webp" type="image/webp"><img src="img/styles/24.jpg" alt="군인 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>군인 커트</b><small>Military Cut</small></figcaption></figure></li>
+          </ul>
+        </div>
+        <div class="row" data-g="k">
+          <p class="row__name"><em>Students & Kids</em> 학생 · 아이 <span>7</span></p>
+          <ul class="strip">
+            <li><figure><picture><source srcset="img/styles/12.webp" type="image/webp"><img src="img/styles/12.jpg" alt="어린이 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>어린이 커트</b><small>Kids Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/13.webp" type="image/webp"><img src="img/styles/13.jpg" alt="여아 긴머리 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>여아 긴머리</b><small>Girls Long</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/14.webp" type="image/webp"><img src="img/styles/14.jpg" alt="여아 단발 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>여아 단발</b><small>Girls Bob</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/15.webp" type="image/webp"><img src="img/styles/15.jpg" alt="중학생 남 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중학생 남</b><small>Student Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/16.webp" type="image/webp"><img src="img/styles/16.jpg" alt="중학생 여 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중학생 여</b><small>Student Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/17.webp" type="image/webp"><img src="img/styles/17.jpg" alt="고등학생 남 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>고등학생 남</b><small>Student Cut</small></figcaption></figure></li>
+            <li><figure><picture><source srcset="img/styles/18.webp" type="image/webp"><img src="img/styles/18.jpg" alt="고등학생 여 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>고등학생 여</b><small>Student Cut</small></figcaption></figure></li>
+          </ul>
+        </div>
       </div>
-      <ul class="gallery">
-        <li data-g="w"><figure><picture><source srcset="img/styles/01.webp" type="image/webp"><img src="img/styles/01.jpg" alt="숏 단발 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>숏 단발</b><small>Short Cut</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/02.webp" type="image/webp"><img src="img/styles/02.jpg" alt="롱 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>롱 레이어드</b><small>Long Layer</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/03.webp" type="image/webp"><img src="img/styles/03.jpg" alt="단발 보브 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>단발 보브</b><small>Bob Cut</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/04.webp" type="image/webp"><img src="img/styles/04.jpg" alt="미디엄 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>미디엄 레이어드</b><small>Layer Cut</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/05.webp" type="image/webp"><img src="img/styles/05.jpg" alt="픽시 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>픽시 커트</b><small>Pixie Cut</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/06.webp" type="image/webp"><img src="img/styles/06.jpg" alt="앞머리 롱 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>앞머리 롱</b><small>Long with Bangs</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/19.webp" type="image/webp"><img src="img/styles/19.jpg" alt="긴 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>긴 레이어드</b><small>Elegant Layer</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/20.webp" type="image/webp"><img src="img/styles/20.jpg" alt="중단발 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중단발 레이어드</b><small>Medium Layer</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/21.webp" type="image/webp"><img src="img/styles/21.jpg" alt="긴 생머리 일자 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>긴 생머리 일자</b><small>Straight Cut</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/22.webp" type="image/webp"><img src="img/styles/22.jpg" alt="숏 레이어드 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>숏 레이어드</b><small>Chic Short</small></figcaption></figure></li>
-        <li data-g="w"><figure><picture><source srcset="img/styles/23.webp" type="image/webp"><img src="img/styles/23.jpg" alt="어르신 숏커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>어르신 숏커트</b><small>Senior Cut</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/07.webp" type="image/webp"><img src="img/styles/07.jpg" alt="클래식 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>클래식 커트</b><small>Classic Cut</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/08.webp" type="image/webp"><img src="img/styles/08.jpg" alt="곱슬머리 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>곱슬머리 커트</b><small>Curly Cut</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/09.webp" type="image/webp"><img src="img/styles/09.jpg" alt="투블럭 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>투블럭</b><small>Two Block</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/10.webp" type="image/webp"><img src="img/styles/10.jpg" alt="텍스처드 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>텍스처드 커트</b><small>Textured Cut</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/11.webp" type="image/webp"><img src="img/styles/11.jpg" alt="비즈니스 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>비즈니스 커트</b><small>Business Cut</small></figcaption></figure></li>
-        <li data-g="m"><figure><picture><source srcset="img/styles/24.webp" type="image/webp"><img src="img/styles/24.jpg" alt="군인 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>군인 커트</b><small>Military Cut</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/12.webp" type="image/webp"><img src="img/styles/12.jpg" alt="어린이 커트 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>어린이 커트</b><small>Kids Cut</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/13.webp" type="image/webp"><img src="img/styles/13.jpg" alt="여아 긴머리 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>여아 긴머리</b><small>Girls Long</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/14.webp" type="image/webp"><img src="img/styles/14.jpg" alt="여아 단발 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>여아 단발</b><small>Girls Bob</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/15.webp" type="image/webp"><img src="img/styles/15.jpg" alt="중학생 남 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중학생 남</b><small>Student Cut</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/16.webp" type="image/webp"><img src="img/styles/16.jpg" alt="중학생 여 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>중학생 여</b><small>Student Cut</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/17.webp" type="image/webp"><img src="img/styles/17.jpg" alt="고등학생 남 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>고등학생 남</b><small>Student Cut</small></figcaption></figure></li>
-        <li data-g="k"><figure><picture><source srcset="img/styles/18.webp" type="image/webp"><img src="img/styles/18.jpg" alt="고등학생 여 스타일 예시" width="480" height="384" loading="lazy"></picture><figcaption><b>고등학생 여</b><small>Student Cut</small></figcaption></figure></li>
-      </ul>
       <p class="styles__note">✂ 사진은 스타일 예시예요 (실제 손님 사진이 아닙니다). 사진 속 웨이브·머리색은 연출이고, 바리스깡은 <b>커트만</b> 합니다 — 펌 · 염색은 하지 않아요.<br>원하는 사진을 핸드폰으로 보여 주시면 참고해서 잘라 드려요.</p>
     </div>
   </section>
@@ -306,7 +322,8 @@
   <a href="tel:051-944-9090" class="dock__main">전화하기 · 051-944-9090</a>
 </nav>
 
-<script src="app.js" defer></script>
-<script type="module" src="hero3d.js"></script>
+<script src="app.js?v=20261012b" defer></script>
+<script type="module" src="hero3d.js?v=20261012b"></script>
+<script type="module" src="styles3d.js?v=20261012b"></script>
 </body>
 </html>

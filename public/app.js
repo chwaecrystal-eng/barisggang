@@ -43,10 +43,3 @@ const onScroll = () => header.classList.toggle('is-scrolled', scrollY > 40);
 addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// 커트 스타일 예시 — 여성 · 남성 · 학생·아이 골라 보기
-const chips = document.querySelectorAll('.chip');
-chips.forEach((b) => b.addEventListener('click', () => {
-  const f = b.dataset.f;
-  chips.forEach((c) => { const on = c === b; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
-  document.querySelectorAll('.gallery li').forEach((li) => { li.hidden = f !== 'all' && li.dataset.g !== f; });
-}));
