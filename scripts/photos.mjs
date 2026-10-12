@@ -4,7 +4,7 @@
 // - 컬러판(마우스를 올렸을 때) + 듀오톤판(청록·크림 두 색, 기본 화면) 두 가지로 만든다
 // - 카톡·네이버 미리보기 그림(og.jpg)을 디자인해서 만든다
 import sharp from 'sharp';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 
 const SRC = 'photos-original/';
 const OUT = 'public/img/';
@@ -46,6 +46,26 @@ for (const j of jobs) {
   await duo.clone().webp({ quality: 82 }).toFile(`${OUT}${j.name}-duo.webp`);
   await duo.clone().jpeg({ quality: 84, mozjpeg: true }).toFile(`${OUT}${j.name}-duo.jpg`);
   console.log('✓', j.name);
+}
+
+// 커트 스타일 예시 (2026-10-12 대표님이 주신 24칸 사진판 styles.webp) → 칸마다 잘라 img/styles/01~24
+// 각 칸 아래에 박힌 영문 이름표는 잘라낸다 (홈페이지에서 한글 이름을 따로 붙임). 칸 경계는 흰 줄 위치를 재서 적은 숫자.
+{
+  const X = [[0, 251], [260, 507], [516, 764], [773, 1022], [1033, 1281], [1290, 1535]];
+  const Y = [[0, 256], [264, 505], [514, 756], [765, 1023]];
+  await mkdir(OUT + 'styles', { recursive: true });
+  let n = 0;
+  for (let r = 0; r < Y.length; r++) for (let c = 0; c < X.length; c++) {
+    const [x0, x1] = X[c], [y0, y1] = Y[r];
+    const tile = sharp(SRC + 'styles.webp')
+      .extract({ left: x0 + 2, top: y0 + (r ? 2 : 0), width: x1 - x0 - 3, height: y1 - y0 - 55 })   // 아래 이름표 띠 빼기
+      .resize(480, 384, { fit: 'cover', position: 'top', kernel: 'lanczos3' })
+      .sharpen({ sigma: 0.6 });
+    const f = `${OUT}styles/${String(++n).padStart(2, '0')}`;
+    await tile.clone().webp({ quality: 80 }).toFile(f + '.webp');
+    await tile.clone().jpeg({ quality: 82, mozjpeg: true }).toFile(f + '.jpg');
+  }
+  console.log('✓ styles', n);
 }
 
 // 카톡·네이버로 주소를 보냈을 때 뜨는 미리보기 그림 (1200×630)
