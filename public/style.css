@@ -245,6 +245,31 @@ main { overflow-x: clip; }
 .visit__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
 .shot--store { aspect-ratio: 4 / 5; border-radius: 240px 240px 4px 4px; box-shadow: 0 50px 90px -40px rgba(0, 0, 0, .8); }
 
+/* ── 자주 묻는 질문 ───────────────────────── */
+.faq { background: var(--paper); color: var(--text); padding: 150px 0; }
+.faq__in { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: start; }
+.faq h2 { font-size: clamp(40px, 4.6vw, 64px); color: var(--ink); }
+.faq h2 em { color: var(--teal); }
+.faq__lead { margin-top: 28px; font-size: 17px; color: #4a5654; }
+.faq__lead a { color: var(--ink); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--brass); }
+.faq__list { border-top: 1px solid var(--line-light); }
+.qa { border-bottom: 1px solid var(--line-light); }
+.qa summary {
+  display: flex; align-items: center; gap: 18px; padding: 26px 0; cursor: pointer; list-style: none;
+  transition: color .3s;
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after {
+  content: ""; flex: none; margin-left: auto; width: 13px; height: 13px;
+  background: linear-gradient(var(--brass), var(--brass)) center/100% 1.5px no-repeat,
+              linear-gradient(var(--brass), var(--brass)) center/1.5px 100% no-repeat;
+  transition: transform .4s var(--ease);
+}
+.qa[open] summary::after { transform: rotate(135deg); }
+.qa summary h3 { font: 700 clamp(17px, 1.7vw, 20px)/1.45 var(--ko); letter-spacing: -0.02em; color: var(--ink); }
+.qa summary:hover h3 { color: var(--teal); }
+.qa > p { padding: 0 44px 28px 0; margin-top: -4px; font-size: 16px; color: #4a5654; }
+
 /* ── 꼬리말 ───────────────────────── */
 .foot { background: var(--ink); padding: 40px 0 36px; border-top: 1px solid var(--line-dark); overflow: hidden; }
 .foot__word { font-size: clamp(90px, 22vw, 330px); font-weight: 900; letter-spacing: -0.07em; line-height: .9; color: transparent; -webkit-text-stroke: 1px rgba(242, 234, 218, .2); margin: 0 0 30px -0.04em; user-select: none; }
@@ -267,7 +292,7 @@ main { overflow-x: clip; }
   .stamp text { font-size: 15px; }
   .stamp img { width: 56px; height: 56px; }
   .scroll { display: none; }
-  .about__in, .hours__in, .visit__in { grid-template-columns: 1fr; }
+  .about__in, .hours__in, .visit__in, .faq__in { grid-template-columns: 1fr; }
   .about__photos { min-height: 0; aspect-ratio: 1 / 1.05; }
   .points { grid-template-columns: 1fr; }
   .points li, .points li + li { padding: 28px 0; border-left: 0; border-bottom: 1px solid var(--line-light); }
@@ -289,7 +314,9 @@ main { overflow-x: clip; }
   .kicker i { width: 20px; }
   .hero__facts div { padding-right: 10px; }
   .hero__facts div + div { padding-left: 12px; }
-  .about, .menu, .hours, .visit, .styles { padding: 100px 0; }
+  .about, .menu, .hours, .visit, .styles, .faq { padding: 100px 0; }
+  .faq__in { gap: 44px; }
+  .qa > p { padding-right: 0; }
   .styles__lead { font-size: 16px; }
   .styles__head { margin-bottom: 40px; }
   .strip { margin: 0 -20px; padding: 0 20px 8px; gap: 12px; }
